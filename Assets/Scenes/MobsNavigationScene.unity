@@ -579,7 +579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &460877779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,6 +1162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f090d5cb8bd44438dd26fb616c71df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firebalPrefab: {fileID: 3771971594043520602, guid: 962ab0d401dcf2e459dd03dd5aa42b2e,
+    type: 3}
+  fireballSourceTransform: {fileID: 1607479963}
 --- !u!1 &1255490999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,6 +1827,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599492302}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1607479963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3786274528560359216, guid: 624be9aaf1bd1da4e8115efa6cf37a50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1214656889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1648215333
 GameObject:
   m_ObjectHideFlags: 0
