@@ -9,7 +9,7 @@ public class FireballSource : MonoBehaviour
     public float targetInSkyDistance;
     void Start()
     {
-        
+        SetMouseInvisible();
     }
 
     // Update is called once per frame
@@ -25,6 +25,11 @@ public class FireballSource : MonoBehaviour
         {
             targetPoint.position = ray.GetPoint(targetInSkyDistance);
         }
-        transform.LookAt(targetPoint.position);
+        transform.LookAt(targetPoint.position );
+    }
+    private void SetMouseInvisible()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
