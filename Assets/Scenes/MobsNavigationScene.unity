@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: e88b39f538cd17844897389f96843fdd, type: 2}
+--- !u!224 &35630451 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3609279731292366875, guid: 624be9aaf1bd1da4e8115efa6cf37a50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1214656889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &97059017
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +607,7 @@ MonoBehaviour:
   - {fileID: 954963883}
   player: {fileID: 1510802217}
   viewAngle: 90
+  damage: 30
 --- !u!195 &460877780
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1284,6 +1291,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3609279731292366875, guid: 624be9aaf1bd1da4e8115efa6cf37a50,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3786274528560359216, guid: 624be9aaf1bd1da4e8115efa6cf37a50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1334,6 +1346,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.7650001
       objectReference: {fileID: 0}
+    - target: {fileID: 3943742721859098290, guid: 624be9aaf1bd1da4e8115efa6cf37a50,
+        type: 3}
+      propertyPath: valueRectTransform
+      value: 
+      objectReference: {fileID: 35630451}
     - target: {fileID: 5397736845735507535, guid: 624be9aaf1bd1da4e8115efa6cf37a50,
         type: 3}
       propertyPath: targetInSkyDistance
