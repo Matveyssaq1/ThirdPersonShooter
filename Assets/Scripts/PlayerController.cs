@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float gravity = 9.8f;
     public float jumpForce;
     public float speed;
+    public Animator animator;
 
     private Vector3 _moveVector;
     private float _fallVelocity = 0;
@@ -20,8 +21,52 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // movement
-        _characterController.Move(_moveVector * speed * Time.fixedDeltaTime);
+        FixedMovement();
+        FixedJumpFall();
+    }
+    void Update()
+    {
+        Movement();
+        Jump();
+    }
+    private void Movement()
+    {
+        _moveVector = Vector3.zero;
+        var runDirection = 0;
+        if (Input.GetKey(KeyCode.W))
+        {
+            _moveVector += transform.forward;
+            runDirection = 1;
+            
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            _moveVector += -transform.forward;
+            runDirection = 2;
+
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            _moveVector += transform.right;
+            runDirection = 3;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            _moveVector += -transform.right;
+            runDirection = 4;
+        }
+        animator.SetInteger("RunDirection", runDirection);
+    }
+    private void Jump()
+    {
+        //Jump
+        if (Input.GetKeyDown(KeyCode.Space) && _characterController.isGrounded)
+        {
+            _fallVelocity = -jumpForce;
+        }
+    }
+    private void FixedJumpFall()
+    {
         //fall and jump
         _fallVelocity += gravity * Time.fixedDeltaTime;
         _characterController.Move(Vector3.down * _fallVelocity * Time.fixedDeltaTime);
@@ -30,30 +75,9 @@ public class PlayerController : MonoBehaviour
             _fallVelocity = 0;
         }
     }
-    void Update()
+    private void FixedMovement()
     {
         // movement
-        _moveVector = Vector3.zero;
-        if (Input.GetKey(KeyCode.W))
-        {
-            _moveVector += transform.forward;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            _moveVector += -transform.forward;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            _moveVector += transform.right;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            _moveVector += -transform.right;
-        }
-        //Jump
-        if (Input.GetKeyDown(KeyCode.Space) && _characterController.isGrounded)
-        {
-            _fallVelocity = -jumpForce;
-        }
+        _characterController.Move(_moveVector * speed * Time.fixedDeltaTime);
     }
 }

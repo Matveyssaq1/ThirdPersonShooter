@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public RectTransform valueRectTransform;
     public GameObject gameplayUI;
     public GameObject gameOverScreen;
+    public Animator animator;
 
     private float _maxHealth;
 // Start is called before the first frame update
@@ -24,9 +25,8 @@ public class PlayerHealth : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            gameOverScreen.SetActive(true);
-            gameplayUI.SetActive(false);
             PlayerIsDead();
+
 
         }
         DrawHealthBar();
@@ -37,9 +37,14 @@ public class PlayerHealth : MonoBehaviour
     }
     private void PlayerIsDead()
     {
+        gameplayUI.SetActive(false);
+        gameOverScreen.SetActive(true);
+        gameOverScreen.GetComponent<Animator>().SetTrigger("show");
+        
         GetComponent<PlayerController>().enabled = false;
         GetComponent<FireballCaster>().enabled = false;
         GetComponent<CameraRotation>().enabled = false;
+        animator.SetTrigger("death");
     }
 
 }
