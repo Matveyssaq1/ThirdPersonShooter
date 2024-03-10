@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public List<Transform> patrolPoints;
+    public List<Transform> _patrolPoints;
     public PlayerController player;
     public float viewAngle;
     public float damage = 30;
@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     {
         InitComponentsLinks(); 
         PickPatrolPoint();
+        _patrolPoints = new List<Transform>(transform.GetComponentsInChildren<Transform>());
     }
 
     // Update is called once per frame
@@ -46,7 +47,7 @@ public class EnemyAI : MonoBehaviour
     
     private void PickPatrolPoint()
     {
-        _navMeshAgent.destination = patrolPoints[Random.Range(0, patrolPoints.Count)].position;
+        _navMeshAgent.destination = _patrolPoints[Random.Range(0, _patrolPoints.Count)].position;
     }
     private void PatrolUpdate()
     {

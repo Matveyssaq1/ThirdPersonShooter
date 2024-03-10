@@ -69,14 +69,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d6cfa2a1608804197e33e4515589c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _patrolPoints: []
   player: {fileID: 0}
   viewAngle: 90
   damage: 30
+  animator: {fileID: 1742924391853007024}
+  attackDistance: 1
 --- !u!114 &1742924391509534854
 MonoBehaviour:
   m_ObjectHideFlags: 0
