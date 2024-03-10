@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class AidKit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float healAmount = 50;
 
-    // Update is called once per frame
-    void Update()
+
+    public void OnTriggerEnter(Collider other)
     {
-        
+        var playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.AddHealth(healAmount);
+
+            Destroy(gameObject);
+        }
     }
 }

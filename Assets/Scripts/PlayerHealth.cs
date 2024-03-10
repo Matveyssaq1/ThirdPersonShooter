@@ -46,5 +46,11 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<CameraRotation>().enabled = false;
         animator.SetTrigger("death");
     }
+    public void AddHealth(float amount)
+    {
+        health += amount;
+        health = Mathf.Clamp(health, 0, _maxHealth);
+        DrawHealthBar() ;
+    }
 
 }
