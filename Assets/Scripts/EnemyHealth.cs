@@ -12,11 +12,15 @@ public class EnemyHealth : MonoBehaviour
     {
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public bool IsAlive()
+    {
+        return health > 0;
     }
     public void DealDamage(float damage)
     {
@@ -30,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
             animator.SetTrigger("hit");
         }
     }
-    private void EnemyDeath()
+    public void EnemyDeath()
     {
         animator.SetTrigger("death");
         GetComponent<EnemyAI>().enabled = false;

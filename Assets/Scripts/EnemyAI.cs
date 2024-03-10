@@ -11,17 +11,17 @@ public class EnemyAI : MonoBehaviour
     public float damage = 30;
     public Animator animator;
     public float attackDistance = 1;
-
+    public EnemyHealth _enemyHealth;
     private NavMeshAgent _navMeshAgent;
     private bool _isPlayerNoticed;
     private PlayerHealth _playerHealth;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         InitComponentsLinks(); 
         PickPatrolPoint();
-        _patrolPoints = new List<Transform>(transform.GetComponentsInChildren<Transform>());
     }
 
     // Update is called once per frame
@@ -31,16 +31,20 @@ public class EnemyAI : MonoBehaviour
         ChaseUpdate();
         AttackUpdate();
         PatrolUpdate();
+        CheckIfAlive();
     }
     private void AttackUpdate()
     {
         if (_isPlayerNoticed)
         {
-            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+            if (_enemyHealth.health > 0)
             {
-                animator.SetTrigger("attack");
+                if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance && _enemyHealth.health > 0)
+                {
+                    animator.SetTrigger("attack");
 
 
+                }
             }
         }
     }
@@ -53,7 +57,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (!_isPlayerNoticed) 
         {
-            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance )
             {
                 PickPatrolPoint();
             }
@@ -63,6 +67,7 @@ public class EnemyAI : MonoBehaviour
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _playerHealth = player.GetComponent<PlayerHealth>();
+        _enemyHealth = GetComponent<EnemyHealth>();
     }
     private void NoticePlayerUpdate()
     {
@@ -85,13 +90,33 @@ public class EnemyAI : MonoBehaviour
     {
         if (_isPlayerNoticed)
         {
-            _navMeshAgent.destination = player.transform.position;
+            if (_enemyHealth.health > 0)
+            {
+                _navMeshAgent.destination = player.transform.position;
+            }
+            
         }
     }
     public void AttackDamage()
     {
         if (!_isPlayerNoticed) return;
-        if (_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance + attackDistance) return;
-        _playerHealth.DealDamage(damage);
+        if(_enemyHealth.health > 0)
+        {
+            if (_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance + attackDistance) return;
+            _playerHealth.DealDamage(damage);
+        }
+        
     }
+    public bool IsAlive()
+    {
+        return _enemyHealth.IsAlive();
+    }
+    public void CheckIfAlive() 
+    { 
+        if (_enemyHealth.health == 0)
+        {
+            _enemyHealth.EnemyDeath();
+        }
+    }
+
 }

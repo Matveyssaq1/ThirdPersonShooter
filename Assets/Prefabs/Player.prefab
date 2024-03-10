@@ -323,7 +323,7 @@ MonoBehaviour:
   gravity: 9.8
   jumpForce: 10
   speed: 8
-  animator: {fileID: 0}
+  animator: {fileID: 3541862488447114809}
 --- !u!143 &2332531365218633459
 CharacterController:
   m_ObjectHideFlags: 0
