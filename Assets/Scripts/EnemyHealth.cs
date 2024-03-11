@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health = 100;
     public Animator animator;
+    public Explosion explosionPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +41,14 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
-        Invoke("Death", 1);
+        Invoke("Death", 2);
+        
     }
     private void Death()
     {
         animator.SetTrigger("death");
+        var explosion = Instantiate(explosionPrefab);
+        explosion.transform.position = transform.position;
         Invoke("Destroy", 3);
     }
     private void Destroy()

@@ -75,6 +75,7 @@ MonoBehaviour:
   damage: 30
   animator: {fileID: 1742924391853007024}
   attackDistance: 1
+  _enemyHealth: {fileID: 0}
 --- !u!114 &1742924391509534854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +90,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   animator: {fileID: 1742924391853007024}
+  explosionPrefab: {fileID: 4614183032947362599, guid: 207b33d5f2669dd46831e34cef1ca755,
+    type: 3}
 --- !u!136 &1742924391509534855
 CapsuleCollider:
   m_ObjectHideFlags: 0
