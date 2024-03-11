@@ -47,12 +47,17 @@ public class EnemyHealth : MonoBehaviour
     private void Death()
     {
         animator.SetTrigger("death");
-        var explosion = Instantiate(explosionPrefab);
-        explosion.transform.position = transform.position;
+        MobExplosion();
         Invoke("Destroy", 3);
     }
     private void Destroy()
     {
         Destroy(gameObject);
+    }
+    private void MobExplosion()
+    {
+        if (explosionPrefab == null) return;
+        var explosion = Instantiate(explosionPrefab);
+        explosion.transform.position = transform.position;
     }
 }
