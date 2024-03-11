@@ -2058,6 +2058,18 @@ MonoBehaviour:
   firebalPrefab: {fileID: 3771971594043520602, guid: 962ab0d401dcf2e459dd03dd5aa42b2e,
     type: 3}
   fireballSourceTransform: {fileID: 1607479963}
+--- !u!114 &1214656895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2332531365218633456, guid: 624be9aaf1bd1da4e8115efa6cf37a50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1214656889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214656890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c235c50542995ad47818f05823fbe469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1255490999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3096,7 +3108,8 @@ MonoBehaviour:
   - {fileID: 1773674823}
   - {fileID: 983555660}
   delay: 5
-  player: {fileID: 2332531365218633456, guid: 624be9aaf1bd1da4e8115efa6cf37a50, type: 3}
+  player: {fileID: 1214656895}
+  IncreaseMaxEnemyCountdelay: 30
 --- !u!4 &1723885886
 Transform:
   m_ObjectHideFlags: 0

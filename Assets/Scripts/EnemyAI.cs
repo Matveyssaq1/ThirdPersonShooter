@@ -59,7 +59,11 @@ public class EnemyAI : MonoBehaviour
         {
             if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance )
             {
-                PickPatrolPoint();
+                if(_enemyHealth.health > 0)
+                {
+                    PickPatrolPoint();
+                }
+                
             }
         }
     }
@@ -113,9 +117,10 @@ public class EnemyAI : MonoBehaviour
     }
     public void CheckIfAlive() 
     { 
-        if (_enemyHealth.health == 0)
+        if (_enemyHealth.health <= 0)
         {
             _enemyHealth.EnemyDeath();
+
         }
     }
 

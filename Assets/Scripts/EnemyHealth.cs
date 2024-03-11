@@ -40,5 +40,15 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
+        Invoke("Death", 1);
+    }
+    private void Death()
+    {
+        animator.SetTrigger("death");
+        Invoke("Destroy", 3);
+    }
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
