@@ -8,10 +8,11 @@ public class EnemyHealth : MonoBehaviour
     public float health = 100;
     public Animator animator;
     public Explosion explosionPrefab;
+    public PlayerProgress playerProgress; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerProgress = FindObjectOfType<PlayerProgress>();
     }
     
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public void DealDamage(float damage)
     {
+        playerProgress.AddExperience(damage);
         health -= damage;
         if(health <= 0)
         {

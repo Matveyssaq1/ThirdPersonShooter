@@ -6,13 +6,7 @@ public class FireballCaster : MonoBehaviour
 {
     public Fireball firebalPrefab;
     public Transform fireballSourceTransform;
-    void Start()
-
-    {
-        
-    }
-
-    // Update is called once per frame
+    public float damage = 10;
     private void Update()
     {
       FireballCasting();
@@ -21,7 +15,8 @@ public class FireballCaster : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(firebalPrefab, fireballSourceTransform.position, fireballSourceTransform.rotation);
+            var fireball = Instantiate(firebalPrefab, fireballSourceTransform.position, fireballSourceTransform.rotation);
+            fireball.damage = damage;
         }
     }
 }
