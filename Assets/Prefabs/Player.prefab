@@ -509,6 +509,7 @@ MonoBehaviour:
   firebalPrefab: {fileID: 3771971594043520602, guid: 962ab0d401dcf2e459dd03dd5aa42b2e,
     type: 3}
   fireballSourceTransform: {fileID: 3786274528560359216}
+  damage: 10
 --- !u!114 &3943742721859098290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +543,7 @@ MonoBehaviour:
     type: 3}
   grenadeSourceTransform: {fileID: 6936953156447306929}
   force: 500
+  damage: 50
 --- !u!114 &3752922564550730641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,6 +559,8 @@ MonoBehaviour:
   levels: []
   expirienceValueRectTransform: {fileID: 7098415017002631983}
   levelValueTMP: {fileID: 3513413272836396561}
+  _levelValue: 1
+  check: 0
 --- !u!1 &2332531365822032300
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2332531366877347895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.3, z: -4.27}
+  m_LocalPosition: {x: 0, y: 2.3, z: -1.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2332531365822032301}

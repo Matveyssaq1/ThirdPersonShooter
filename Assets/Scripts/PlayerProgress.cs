@@ -9,7 +9,8 @@ public class PlayerProgress : MonoBehaviour
     public RectTransform expirienceValueRectTransform;
     public TextMeshProUGUI levelValueTMP;
 
-    private int _levelValue = 1;
+    public int _levelValue = 1;
+    public int check;
     private float _expirienceCurrentValue = 0;
     private float _expirienceTargetValue = 100;
     
@@ -32,6 +33,7 @@ public class PlayerProgress : MonoBehaviour
     public void SetLevelValue(int value)
     {
         _levelValue = value;
+        check = _levelValue;
         var currentLevel = levels[_levelValue - 1];
         _expirienceTargetValue = currentLevel.expirienceForTheNextLevel;
         GetComponent<FireballCaster>().damage = currentLevel.fireballDamage;

@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     public float viewAngle;
     public float damage = 30;
     public Animator animator;
-    public float attackDistance = 1;
+    public float attackDistance = 0;
     public EnemyHealth _enemyHealth;
     private NavMeshAgent _navMeshAgent;
     private bool _isPlayerNoticed;
